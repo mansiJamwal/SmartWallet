@@ -1,0 +1,25 @@
+{
+  "name": "bank_webhook_handler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node scripts/build.js",
+    "start": "node dist/index.js",
+    "dev": "nodemon --watch src --exec \"node scripts/build.js && node dist/index.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@repo/db": "*",
+    "@types/express": "^5.0.3",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.5",
+    "nodemon": "^3.1.10"
+  }
+}
