@@ -8,10 +8,10 @@ import { createOnRampTransaction } from "../app/lib/actions/createOnRampTransact
 
 const SUPPORTED_BANKS=[{
     name:"HDFC Bank",
-    redirectUrl:process.env.BANK_API_URL
+    redirectUrl:"https://smart-wallet-bank-api.vercel.app"
 },{
     name:"Axis Bank",
-    redirectUrl:process.env.BANK_API_URL
+    redirectUrl:"https://smart-wallet-bank-api.vercel.app"
 }]
 
 export const AddMoney=()=>{
