@@ -2,7 +2,7 @@
 import { Button } from "@repo/ui/button";
 import { Card } from "@repo/ui/card";
 import { Select } from "@repo/ui/Select";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { TextInput } from "@repo/ui/TextInput";
 import { createOnRampTransaction } from "../app/lib/actions/createOnRampTransactions";
 
@@ -18,6 +18,12 @@ export const AddMoney=()=>{
     const [redirectUrl,setRedirectUrl]=useState(SUPPORTED_BANKS[0]?.redirectUrl);
     const [amount,setAmount]=useState(0);
     const [provider,setProvider]=useState(SUPPORTED_BANKS[0]?.name || "");
+
+    useEffect(() => {
+        const defaultBank = SUPPORTED_BANKS[0];
+        setRedirectUrl(defaultBank?.redirectUrl);
+        setProvider(defaultBank?.name||"");
+    }, []);
     
     return (
         <Card title="Add Money">
@@ -40,6 +46,10 @@ export const AddMoney=()=>{
             </Select>
             <div className="flex justify-center pt-4">
             <Button onClick={async () => {
+                 console.log("amount", amount);
+                console.log("provider", provider);
+                console.log("redirectUrl", redirectUrl);
+
                 const transaction=await createOnRampTransaction(amount,provider);
                 const token=transaction.transaction?.token || "";
                 if (!token) {
