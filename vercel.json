@@ -1,14 +1,19 @@
+
 {
-  "builds":[  
-    { "src": "apps/bank-api/package.json",         "use": "@vercel/next" },
-    { "src": "apps/user-app/package.json",         "use": "@vercel/next" },
-    { "src": "apps/bank_webhook_handler/index.js", "use": "@vercel/node" }
+  "builds": [
+    { "src": "apps/bank-api/package.json",                  "use": "@vercel/next" },
+    { "src": "apps/user-app/package.json",                  "use": "@vercel/next" },
+    { "src": "apps/bank_webhook_handler/src/index.ts",      "use": "@vercel/node" }
   ],
 
-  "routes":[
-    { "src": "/",           "dest": "apps/user-app" },
-    { "src": "/bank-api/(.*)",  "dest": "apps/bank-api/$1" },
-    { "src": "/user-app/(.*)",  "dest": "apps/user-app/$1" },
-    { "src": "/bank-webhook",   "dest": "apps/bank_webhook_handler/index.js" }
+  "routes": [
+    
+    { "src": "^/bank-webhook$",     "dest": "apps/bank_webhook_handler/src/index.ts" },
+
+
+    { "src": "^/bank-api/(.*)$",    "dest": "apps/bank-api/$1" },
+
+ 
+    { "src": "^/(.*)$",             "dest": "apps/user-app/$1" }
   ]
 }
