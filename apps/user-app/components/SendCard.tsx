@@ -21,6 +21,10 @@ export function SendCard() {
                     }} />
                     <div className="pt-4 flex justify-center">
                         <Button onClick={async () => {
+                            if(Number(amount)<0){
+                                alert("Amount cannot be negative");
+                                return;
+                            }
                             await p2pTransfer(number,Number(amount)*100)
                         }}>Send</Button>
                     </div>

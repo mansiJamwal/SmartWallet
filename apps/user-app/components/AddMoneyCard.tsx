@@ -46,10 +46,6 @@ export const AddMoney=()=>{
             </Select>
             <div className="flex justify-center pt-4">
             <Button onClick={async () => {
-                 console.log("amount", amount);
-                console.log("provider", provider);
-                console.log("redirectUrl", redirectUrl);
-
                 const transaction=await createOnRampTransaction(amount,provider);
                 const token=transaction.transaction?.token || "";
                 if (!token) {
@@ -58,6 +54,10 @@ export const AddMoney=()=>{
                 }
                 if (!redirectUrl) {
                     alert("Redirect URL not selected");
+                    return;
+                }
+                if(amount<0){
+                    alert("Amount cannot be negative");
                     return;
                 }
                 window.location.href = `${redirectUrl}?token=${token}&provider=${provider}`;
