@@ -2,17 +2,18 @@
   "name": "paytm",
   "private": true,
   "scripts": {
-     "postinstall": "turbo run generate",
+    "postinstall": "prisma generate --schema=packages/db/prisma/schema.prisma",
     "generate": "turbo run generate",
     "build": "turbo run build",
     "dev": "turbo run dev",
-     "start":"turbo run start",
+    "start": "turbo run start",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
+    "prisma": "^6.11.1",
     "turbo": "^2.5.4",
     "typescript": "5.8.2"
   },
@@ -28,6 +29,7 @@
   "description": "This Turborepo starter is maintained by the Turborepo core team.",
   "main": "index.js",
   "dependencies": {
+    "@prisma/client": "^6.11.1",
     "accepts": "^2.0.0",
     "acorn": "^8.15.0",
     "acorn-jsx": "^5.3.2",
