@@ -17,10 +17,10 @@ export function Landing(){
                 }else{
                     throw new Error("Token not found")  
                 }
-                window.location.href="http://localhost:3001/transfer"
+                window.location.href=`${process.env.USER_APP_URL}/transfer`
             } catch(e){
                 console.error(e);
-                window.location.href="http://localhost:3001/transfer"
+                window.location.href=`${process.env.USER_APP_URL}/transfer`
             } 
         }
         setTimeout(async ()=>{

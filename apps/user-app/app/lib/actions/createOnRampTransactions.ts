@@ -7,7 +7,7 @@ import axios from "axios"
 
 export async function createOnRampTransaction(amount:number,provider:string){
     const session=await getServerSession(authOptions);
-    const response=await axios.post("http://localhost:3002/api/token",{
+    const response=await axios.post(`${process.env.BANK_API_URL}/api/token`,{
         password:process.env.BANK_PASSWORD
     },{
         headers:{
