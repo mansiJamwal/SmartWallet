@@ -14,6 +14,11 @@ export async function createOnRampTransaction(amount:number,provider:string){
             "Content-Type":"application/json"
         }
     })
+    if(amount<0){
+        return{
+            "message":"Amount cannot be less than 0"
+        }
+    }
     const message=response.data.message
     if(!session?.user || !session?.user?.id){
         return {

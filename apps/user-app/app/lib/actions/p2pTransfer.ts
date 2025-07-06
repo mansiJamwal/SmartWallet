@@ -18,6 +18,11 @@ export async function p2pTransfer(to:string,amount:number){
             "message":"User not logged in"
         }
     }
+    if(amount<0){
+        return{
+            "message":"Amount cannot be less than 0"
+        }
+    }
     const toUser=await db.user.findUnique({
         where:{
             number:to
