@@ -17,10 +17,10 @@ export function Landing(){
                 }else{
                     throw new Error("Token not found")  
                 }
-                window.location.href=`${process.env.USER_APP_URL}/transfer`
+                window.location.href="https://smart-wallet-user-app.vercel.app/transfer"
             } catch(e){
                 console.error(e);
-                window.location.href=`${process.env.USER_APP_URL}/transfer`
+                window.location.href="https://smart-wallet-user-app.vercel.app/transfer"
             } 
         }
         setTimeout(async ()=>{

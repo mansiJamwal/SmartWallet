@@ -13,7 +13,7 @@ export async function authorizeTransaction(token:string){
         }
     }
     
-    const response=await axios.post(`${process.env.BANK_WEBHOOK_URL}/webhook`,{
+    const response=await axios.post("https://smartwallet-qaqt.onrender.com/webhook",{
         amount:transaction.amount,
         user_identifier:transaction.userId,
         token:token,
